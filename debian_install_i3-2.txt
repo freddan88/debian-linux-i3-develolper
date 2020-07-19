@@ -129,6 +129,11 @@ cd $HOME/Downloads && sudo apt install ./code*amd64.deb -y
 # https://www.google.se/chrome/?brand=CHBD&gclid=EAIaIQobChMIiov-7tW-6gIViNGyCh3MVAM3EAAYASAAEgIU5fD_BwE&gclsrc=aw.ds
 cd $HOME/Downloads && sudo apt install ./google-chrome-stable*deb -y
 
+Install new kernel:
+https://www.addictivetips.com/ubuntu-linux-tips/get-linux-kernel-5-3-on-debian-10-stable
+sudo apt update && apt search linux-image
+sudo apt install linux-image-5.6.0-0.bpo.2-amd64 && linux-headers-5.6.0-0.bpo.2-amd64
+
 sudo apt install php-cli sendmail sqlite3 -y
 cd /tmp && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 cd /tmp && php composer-setup.php && php -r "unlink('composer-setup.php');"
