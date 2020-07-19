@@ -38,7 +38,7 @@ INSTALL:
 apt update && apt upgrade -y && sudo apt install fonts-ubuntu-font-family-console ttf-ubuntu-font-family -y
 apt install i3 xorg zsh git ssh zip wget curl nano sudo net-tools playerctl alsa-utils alsa-tools volumeicon-alsa pulseaudio pavucontrol slick-greeter -y
 apt install pcmanfm gparted lxappearance synaptic mousepad rofi neofetch nitrogen  libreoffice mate-power-manager iceweasel network-manager-gnome -y
-apt install imagemagick mirage xdg-user-dirs xfce4-screenshooter xterm lxterminal numlockx xbacklight xarchiver compton exo-utils gimp -y
+apt install imagemagick mirage xdg-user-dirs xfce4-screenshooter xterm lxterminal numlockx xbacklight xarchiver compton exo-utils gimp thunderbird -y
 apt install lightdm lxqt-sudo lxqt-config --no-install-recommends -y
 
 curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add -
