@@ -1,0 +1,153 @@
+USAGE:
+
+exo-desktop-item-edit --create-new .
+
+xdg-user-dirs-update
+lxqt-sudo lightdm-gtk-greeter-settings
+
+/usr/bin/mate-power-manager
+/usr/bin/mate-power-statistics
+/usr/bin/mate-power-preferences
+
+WORKAROUNDS
+
+# Cant shutdown or poweroff Debian from i3exit
+sudo nano /usr/share/polkit-1/actions/org.freedesktop.login1.policy
+- search for power-off and and change: <allow_inactive>yes</allow_inactive>
+- search for reboot and change: <allow_inactive>yes</allow_inactive>
+
+# https://askubuntu.com/questions/71159/network-manager-says-device-not-managed
+sudo nano /etc/NetworkManager/NetworkManager.conf
+
+# https://linuxhint.com/install_slim_debian9
+# cd /tmp && git clone https://github.com/adi1090x/slim_themes.git
+# cd /tmp/slim_themes && sudo cp -Rf themes /usr/share/slim
+# sudo nano /etc/slim.conf + Change: current_theme to greeny_dark
+
+# https://github.com/linuxmint/lightdm-settings/releases
+# cd /tmp && wget https://github.com/linuxmint/lightdm-settings/archive/1.4.2.zip
+# unzip 1.4.2.zip && cp -r /tmp/lightdm-settings-1.4.2/usr /
+
+# cd /tmp && wget https://github.com/linuxmint/slick-greeter/releases/download/master.mint19/packages.tar.gz
+# sudo tar -xf packages.tar.gz && apt install /tmp/packages/slick-greeter*amd64.deb
+
+# apt install python3-setproctitle python-setoptconf python3-gi python3-gi-cairo gir1.2-gtk-3.0 gtk2-engines-murrine gtk2-engines-pixbuf
+
+INSTALL:
+
+apt update && apt upgrade -y && sudo apt install fonts-ubuntu-font-family-console ttf-ubuntu-font-family -y
+apt install i3 xorg zsh git ssh zip wget curl nano sudo net-tools playerctl alsa-utils alsa-tools volumeicon-alsa pulseaudio pavucontrol slick-greeter -y
+apt install pcmanfm gparted lxappearance synaptic mousepad rofi neofetch nitrogen  libreoffice mate-power-manager iceweasel network-manager-gnome -y
+apt install imagemagick mirage xdg-user-dirs xfce4-screenshooter xterm lxterminal numlockx xbacklight xarchiver compton exo-utils gimp -y
+apt install lightdm lxqt-sudo lxqt-config --no-install-recommends -y
+
+curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add -
+echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
+apt-get update && apt-get install spotify-client -y
+
+usermod -aG sudo <your-username>
+
+cd /usr/bin && wget https://gist.githubusercontent.com/beast2013/4fa8f8d12adace070afc/raw/8d0a69b78cf27b89577869cbd7d535b950a7f2c2/i3exit
+chmod 755 i3exit
+
+nano /etc/lightdm/slick-greeter.conf
+[Greeter]
+background=/usr/share/wallpapers/linux-wallpaper-01.jpg
+draw-user-backgrounds=false
+theme-name=Mint-Y-Dark
+icon-theme-name=Mint-Y-Dark
+activate-numlock=true
+draw-grid=false
+
+
+FOR VM:S (VIRTUALBOX GUEST EXTENSIONS)
+apt install linux-headers-$(uname -r) make gcc dkms build-essential -y
+
+apt update && apt upgrade && apt autoremove -y
+
+EXTRA:
+nano /etc/apt/sources.list
+
+deb http://deb.debian.org/debian buster main contrib non-free
+deb-src http://deb.debian.org/debian buster main contrib non-free
+
+deb http://deb.debian.org/debian-security/ buster/updates main contrib non-free
+deb-src http://deb.debian.org/debian-security/ buster/updates main contrib non-free
+
+deb http://deb.debian.org/debian buster-updates main contrib non-free
+deb-src http://deb.debian.org/debian buster-updates main contrib non-free
+
+
+apt update && apt install libavcodec-extra ttf-mscorefonts-installer unrar gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi -y
+apt update && apt upgrade && apt autoremove -y
+
+
+WALLPAPER
+
+# https://wallpapersafari.com/w/LEps6S
+mkdir -p /usr/share/wallpapers && cd /usr/share/wallpapers
+wget https://img.wallpapersafari.com/desktop/1920/1080/95/51/LEps6S.jpg && mv LEps6S.jpg linux-wallpaper-01.jpg
+
+
+THEMES:
+
+cd /tmp && wget http://packages.linuxmint.com/pool/main/m/mint-y-icons/mint-y-icons_1.4.3_all.deb
+cd /tmp && wget http://packages.linuxmint.com/pool/main/m/mint-x-icons/mint-x-icons_1.5.5_all.deb
+cd /tmp && wget http://packages.linuxmint.com/pool/main/m/mint-themes/mint-themes_1.8.6_all.deb
+apt install ./mint-y-icons_1.4.3_all.deb ./mint-x-icons_1.5.5_all.deb ./mint-themes_1.8.6_all.deb
+
+cd /tmp && wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.13.1/fontawesome-free-5.13.1-web.zip
+unzip fontawesome-free-5.13.1-web.zip && cp fontawesome-free-5.13.1-web/webfonts/*.ttf /usr/share/fonts
+
+
+TOOLS RUN AS USER:
+
+# https://github.com/nvm-sh/nvm (node och npm version control)
+cd /tmp && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+< Logout and in from the current session >
+
+- Install lates LTS release of npm and node.js
+nvm install --lts
+
+# https://ohmyz.sh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+nano $HOME/.zshrc 
+- Add autosuggestions to plugins. Example: plugins=(git zsh-autosuggestions)
+- Add below to the end of the file:
+echo "" 
+neofetch
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# https://code.visualstudio.com/Download#
+cd $HOME/Downloads && sudo apt install ./code*amd64.deb -y
+
+# https://www.google.se/chrome/?brand=CHBD&gclid=EAIaIQobChMIiov-7tW-6gIViNGyCh3MVAM3EAAYASAAEgIU5fD_BwE&gclsrc=aw.ds
+cd $HOME/Downloads && sudo apt install ./google-chrome-stable*deb -y
+
+sudo apt install php-cli sendmail sqlite3 -y
+cd /tmp && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+cd /tmp && php composer-setup.php && php -r "unlink('composer-setup.php');"
+sudo mv /tmp/composer.phar /usr/local/bin/composer
+sudo chown root:root /usr/local/bin/composer
+
+# https://www.postman.com/downloads
+cd $HOME/Downloads && sudo tar -xf Postman-linux*tar.gz --directory /opt
+sudo chown -R root:root /opt/Postman
+
+# https://www.mongodb.com/try/download/compass
+cd /tmp && wget https://downloads.mongodb.com/compass/mongodb-compass_1.21.2_amd64.deb
+cd /tmp && sudo apt install ./mongodb-compass*amd64.deb -y
+
+# https://docs.docker.com/engine/install/debian
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+cd /usr/bin && sudo wget https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64
+cd /usr/bin && sudo mv docker-compose-Linux-x86_64 docker-compose && sudo chmod 755 docker-compose
+sudo usermod -aG docker <your-username>
