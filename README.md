@@ -4,7 +4,7 @@
 
 ### Download and install the system:
 
-1. Download the latest netinstall from: https://www.debian.org/distrib
+1. Download the latest netinstall from here: https://www.debian.org/distrib
 
 ![Resault](https://github.com/freddan88/debian-linux-i3-develolper/raw/master/images/03.jpg)
 
