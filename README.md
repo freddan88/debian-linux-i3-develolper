@@ -14,9 +14,9 @@
 
 1. Download the latest netinstall from here: https://www.debian.org/distrib
 
-<div style="margin: 0 auto">
+<p align="center">
 ![Result](https://github.com/freddan88/debian-linux-i3-develolper/raw/master/images/03.jpg)
-</div>
+</p>
 
 ![Lightdm](https://github.com/freddan88/debian-linux-i3-develolper/raw/master/images/04.jpg)
 
