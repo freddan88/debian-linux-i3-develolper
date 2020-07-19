@@ -5,3 +5,5 @@
 ### Download and install the system:
 
 1. Download the latest netinstall from: https://www.debian.org/distrib
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
