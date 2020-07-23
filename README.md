@@ -9,11 +9,9 @@
 |  YouTube: | [youtube.com/FreLee54](https://www.youtube.com/user/FreLee54) |
 |   GitHub: | [github.com/freddan88](https://github.com/freddan88)          |
 
-## Intro
+## Introduction
 
-We are going to install a configure the i3 window manager on Linux Debian from scratch. We are going to use apt, wget to install and configure the system...
-
-#### Examples
+We are going to install a configure the i3 window manager on Linux Debian from scratch. We will use apt, wget to install and configure the system...
 
 ![Result.1col](https://github.com/freddan88/debian-linux-i3-develolper/raw/master/images/03.jpg)
 ![Lightdm.1col](https://github.com/freddan88/debian-linux-i3-develolper/raw/master/images/04.jpg)
