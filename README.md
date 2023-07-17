@@ -6,7 +6,6 @@
 | --------: | ------------------------------------------------------------- |
 |  License: | [MIT](https://choosealicense.com/licenses/mit/)               |
 |  WebPage: | [leemann.se/fredrik](http://www.leemann.se/fredrik)           |
-|  YouTube: | [youtube.com/FreLee54](https://www.youtube.com/user/FreLee54) |
 |   GitHub: | [github.com/freddan88](https://github.com/freddan88)          |
 
 ## Introduction
